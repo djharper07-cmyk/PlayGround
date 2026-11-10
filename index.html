@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+  <meta name="theme-color" content="#101619">
+  <title>Neon District — City of Shadows</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Neon District home"><span class="brand-mark">N<span>·</span></span><span class="brand-name">NEON<br><b>DISTRICT</b></span></a>
+      <div class="season"><span class="live-dot"></span><span id="season-label">SEASON 01</span><i>/</i><span id="week-label">WEEK 01</span></div>
+      <div class="top-actions"><button class="icon-btn" id="sound-toggle" aria-label="Toggle sound">♫</button><button class="icon-btn" id="help-btn" aria-label="Help">?</button></div>
+    </header>
+    <section class="dashboard">
+      <div class="city-panel panel">
+        <div class="city-head"><div><div class="eyebrow">YOUR CITY, YOUR CALL</div><h1>Puerto <span>Sol</span></h1></div><div class="weather"><span class="weather-icon">☼</span><span>WARM NIGHT<br><small>26° · CLEAR</small></span></div></div>
+        <div class="map-wrap"><canvas id="city-map" aria-label="Interactive isometric city map"></canvas><div class="map-overlay"><span class="map-live"><i></i> LIVE DISTRICT VIEW</span><span class="map-hint">TAP A DISTRICT TO INSPECT</span></div><div class="map-legend"><span><i class="legend-player"></i> YOUR INFLUENCE</span><span><i class="legend-rival"></i> RIVAL CREWS</span></div></div>
+        <div class="district-strip" id="district-strip" aria-label="District selector"></div>
+        <div class="district-detail" id="district-detail"></div>
+      </div>
+      <aside class="side-column">
+        <section class="panel resources-panel"><div class="section-title"><span>YOUR NETWORK</span><span class="tiny-tag">OVERVIEW</span></div><div class="resource-grid" id="resource-grid"></div><div class="heat-row"><div><span class="heat-label">CITY ATTENTION</span><b id="heat-value">LOW</b></div><div class="heat-meter"><i id="heat-meter-fill"></i></div></div></section>
+        <section class="panel action-panel"><div class="section-title"><span>MAKE YOUR MOVE</span><span class="tiny-tag" id="action-context">DOWNTOWN</span></div><div class="action-list" id="action-list"></div><button class="advance-btn" id="advance-btn"><span>END WEEK</span><b>→</b></button><div class="turn-note">Every move shapes the city.<br>Choose wisely.</div></section>
+        <section class="panel bulletin-panel"><div class="section-title"><span>FIELD NOTES</span><span class="tiny-tag">RECENT</span></div><div class="log-list" id="log-list"></div></section>
+      </aside>
+    </section>
+    <footer class="footer"><span>PUERTO SOL <i>·</i> THE CITY NEVER SLEEPS</span><span>AN ORIGINAL STRATEGY SIMULATION <i>·</i> AUTOSAVED</span></footer>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="modal-backdrop" id="modal-backdrop" hidden><section class="modal panel" role="dialog" aria-modal="true" aria-labelledby="modal-title"><button class="modal-close" id="modal-close" aria-label="Close">×</button><div class="eyebrow">NEON DISTRICT / FIELD GUIDE</div><h2 id="modal-title">A city of <span>possibility.</span></h2><p>Build a neighborhood network, earn the trust of the people, and become Puerto Sol’s most influential crew. The city is yours to shape—one week at a time.</p><div class="guide-grid"><div><b>01 / EXPAND</b><span>Grow your presence in new districts.</span></div><div><b>02 / INVEST</b><span>Support local businesses and build goodwill.</span></div><div><b>03 / CONNECT</b><span>Make friends. Keep tensions down.</span></div><div><b>04 / STAY BALANCED</b><span>Manage attention and morale as you grow.</span></div></div><button class="primary-btn" id="guide-start">LET’S PLAY <span>→</span></button></section></div>
+  <script src="game.js"></script>
+</body>
+</html>
