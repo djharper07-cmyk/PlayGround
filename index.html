@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#101513" />
+  <title>Golden Hour — Cartel City</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Golden Hour home"><span class="brand-mark">✳</span><span>GOLDEN HOUR<small>THE CITY IS YOURS</small></span></a>
+      <div class="day-block"><span class="live-dot"></span><span id="dayLabel">MONDAY · DAY 01</span><span class="weather">☀ &nbsp; 82°</span></div>
+      <div class="top-actions"><button class="icon-btn" id="soundBtn" aria-label="Toggle sound">♫</button><button class="menu-btn" id="menuBtn">MENU <span>☰</span></button></div>
+    </header>
+    <section class="game-layout">
+      <aside class="left-panel">
+        <div class="eyebrow">YOUR ORGANIZATION</div>
+        <h1>Build an<br><em>empire.</em></h1>
+        <p class="intro">A city of opportunity. Make your move.</p>
+        <div class="leader-card"><div class="avatar">V</div><div><strong>Valentina Cruz</strong><small>La Jefa · Level <span id="level">1</span></small></div><div class="rank">✦</div></div>
+        <div class="stat-list">
+          <div class="stat-row"><span class="stat-icon cash">＄</span><span class="stat-name">CASH</span><b id="cash">$12,400</b></div>
+          <div class="stat-row"><span class="stat-icon rep">✳</span><span class="stat-name">INFLUENCE</span><b id="influence">18 <small>/ 100</small></b></div>
+          <div class="stat-row"><span class="stat-icon heat">⌁</span><span class="stat-name">HEAT</span><b id="heat">12 <small>/ 100</small></b></div>
+        </div>
+        <div class="heat-track"><div id="heatBar"></div></div><div class="heat-caption"><span>LOW PROFILE</span><span>UNDER PRESSURE</span></div>
+        <div class="section-rule"></div>
+        <div class="district-heading"><span>NEIGHBORHOODS</span><span id="ownedCount">01 / 06</span></div>
+        <div id="districtList" class="district-list"></div>
+        <div class="sidebar-note"><span>✦</span> The smartest move is the one no one sees coming.</div>
+      </aside>
+
+      <section class="map-stage">
+        <div class="map-vignette"></div>
+        <canvas id="cityCanvas" aria-label="Interactive isometric city map. Select a neighborhood."></canvas>
+        <div class="map-label"><span class="map-pin">⌖</span><span id="mapDistrict">SANTA ROSA</span><small>METROPOLITAN DISTRICT</small></div>
+        <div class="map-tools"><button id="zoomOut" aria-label="Zoom out">−</button><span id="zoomLabel">100%</span><button id="zoomIn" aria-label="Zoom in">+</button><i></i><button id="centerMap" aria-label="Center map">⌖</button></div>
+        <div class="map-legend"><span><i class="legend-owned"></i> YOUR TURF</span><span><i class="legend-open"></i> OPEN</span><span><i class="legend-rival"></i> RIVAL CREW</span></div>
+        <div class="district-card" id="districtCard"><button class="close-card" id="closeCard" aria-label="Close">×</button><div class="card-overline">NEIGHBORHOOD <span id="districtStatus">YOUR TURF</span></div><h2 id="cardName">Santa Rosa</h2><p id="cardDesc">The old town. Everyone knows your name here.</p><div class="district-facts"><div><small>WEEKLY INCOME</small><b id="cardIncome">$1,200</b></div><div><small>LOCAL SUPPORT</small><b id="cardSupport">62%</b></div><div><small>CONTROL</small><b id="cardControl">YOURS</b></div></div><button class="claim-btn" id="districtAction">MANAGE NEIGHBORHOOD <span>→</span></button></div>
+        <div class="map-hint" id="mapHint">TAP A NEIGHBORHOOD TO EXPLORE <span>↗</span></div>
+      </section>
+
+      <aside class="right-panel">
+        <div class="right-title"><div><div class="eyebrow">THE CITY · YOUR MOVE</div><h2>Make it count.</h2></div><span class="turn-mark">01</span></div>
+        <p class="right-copy">Every decision shifts the balance. Keep your people close and the spotlight far away.</p>
+        <div class="action-list">
+          <button class="action-card" data-action="community"><span class="action-icon community">♡</span><span class="action-text"><b>Invest in community</b><small>Build trust. Grow influence.</small></span><span class="action-cost">$2,000</span><span class="action-arrow">↗</span></button>
+          <button class="action-card" data-action="business"><span class="action-icon business">▤</span><span class="action-text"><b>Open a local business</b><small>A steady, clean income stream.</small></span><span class="action-cost">$4,000</span><span class="action-arrow">↗</span></button>
+          <button class="action-card" data-action="network"><span class="action-icon network">♧</span><span class="action-text"><b>Grow your network</b><small>Bring a trusted ally onboard.</small></span><span class="action-cost">$3,000</span><span class="action-arrow">↗</span></button>
+          <button class="action-card" data-action="laylow"><span class="action-icon laylow">◒</span><span class="action-text"><b>Keep a low profile</b><small>Cool things down for a while.</small></span><span class="action-cost">FREE</span><span class="action-arrow">↗</span></button>
+        </div>
+        <div class="next-turn"><div><span class="next-icon">◷</span><span><b>END OF DAY</b><small>Collect income & see what unfolds</small></span></div><button id="endDay">NEXT DAY <span>→</span></button></div>
+        <div class="feed-head"><span>FROM THE STREETS</span><i></i><span id="feedDay">DAY 01</span></div>
+        <div class="event-feed" id="eventFeed"><div class="feed-event"><span class="feed-dot gold"></span><div><b>A fresh start</b><p>Santa Rosa is yours. The city is watching.</p><small>JUST NOW</small></div></div></div>
+        <div class="objective"><span>✦</span><div><b>YOUR LONG GAME</b><p>Control 4 neighborhoods and become the city's most influential leader.</p><div class="objective-track"><i id="objectiveBar"></i></div><small id="objectiveProgress">1 OF 4 NEIGHBORHOODS</small></div></div>
+      </aside>
+    </section>
+    <nav class="mobile-nav"><button class="selected" data-tab="city"><span>⌖</span>CITY</button><button data-tab="actions"><span>✳</span>MOVES</button><button data-tab="crew"><span>♧</span>CREW</button><button data-tab="ledger"><span>▤</span>LEDGER</button></nav>
+    <div class="toast" id="toast" role="status"></div>
+    <div class="modal-backdrop" id="modalBackdrop"><div class="modal"><button class="close-modal" id="closeModal">×</button><div class="eyebrow">THE CITY IS ALWAYS CHANGING</div><h2 id="modalTitle">City Ledger</h2><div id="modalBody"></div></div></div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
